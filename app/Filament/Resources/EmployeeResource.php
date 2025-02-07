@@ -96,9 +96,13 @@ class EmployeeResource extends Resource
                 Forms\Components\Section::make('Dates')
                 ->schema([
                     Forms\Components\DatePicker::make('date_of_birth')
-                        ->required(),
-                    Forms\Components\DatePicker::make('date_hired')
                         ->required()
+                        ->native(false)
+                        ->displayFormat('d/m/Y'),
+                        Forms\Components\DatePicker::make('date_hired')
+                        ->required()
+                        ->native(false)
+                        ->displayFormat('d/m/Y'),
                 ])->columns(2),
             ]);
     }
@@ -107,18 +111,6 @@ class EmployeeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('country_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('state_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('city_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('department_id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('middle_name')
