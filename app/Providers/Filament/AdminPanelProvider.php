@@ -27,6 +27,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandLogo(asset('images/laravel-logo.svg'))
+            ->favicon(asset('images/laravel-logo.svg'))
             ->colors([
                 'danger' => Color::Rose,
                 'gray' => Color::Slate,
