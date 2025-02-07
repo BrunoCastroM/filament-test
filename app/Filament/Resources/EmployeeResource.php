@@ -56,16 +56,15 @@ class EmployeeResource extends Resource
                 Forms\Components\TextInput::make('zip_code')
                     ->required()
                     ->maxLength(255),
-                ]),
+                ])->columns(2),
                 Forms\Components\Section::make('Dates')
                 ->schema([
                     Forms\Components\DatePicker::make('date_of_birth')
                         ->required(),
                     Forms\Components\DatePicker::make('date_hired')
                         ->required()
-                        ->columnSpanFull(),
-                ])
-            ])->columns(3);
+                ])->columns(2),
+            ]);
     }
 
     public static function table(Table $table): Table
