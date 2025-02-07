@@ -10,6 +10,7 @@ use App\Models\State;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Notifications\Collection;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -36,6 +37,10 @@ class EmployeeResource extends Resource
                     ->searchable()
                     ->preload()
                     ->live()
+                    ->afterStateUpdated(function (Set $set) {
+                        $set('state_id', null);
+                        $set('city_id', null);
+                    })
                     ->required(),
                     Forms\Components\Select::make('state_id')
                     ->options(fn (Get $get) => $get('country_id') 
@@ -47,6 +52,7 @@ class EmployeeResource extends Resource
                     ->searchable()
                     ->preload()
                     ->live()
+                    ->afterStateUpdated(fn (Set $set) => $set('city_id', null))
                     ->required(),
                     Forms\Components\Select::make('city_id')
                     ->options(fn (Get $get) => $get('state_id') 
