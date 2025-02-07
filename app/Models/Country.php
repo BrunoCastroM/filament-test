@@ -8,7 +8,6 @@ class Country extends Model
 {
     protected $fillable = [
         'name',
-        // Outras colunas que existirem...
     ];
 
     public function states()
