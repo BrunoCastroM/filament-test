@@ -16,25 +16,13 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class EmployeeResource extends Resource
 {
     protected static ?string $model = Employee::class;
-
+    
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                // Forms\Components\TextInput::make('country_id')
-                //     ->required()
-                //     ->numeric(),
-                // Forms\Components\TextInput::make('state_id')
-                //     ->required()
-                //     ->numeric(),
-                // Forms\Components\TextInput::make('city_id')
-                //     ->required()
-                //     ->numeric(),
-                // Forms\Components\TextInput::make('department_id')
-                //     ->required()
-                //     ->numeric(),
                 Forms\Components\Section::make('User Name')
                 ->description('Put the user name details in.')
                 ->schema([
