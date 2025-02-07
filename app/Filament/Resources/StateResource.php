@@ -32,10 +32,7 @@ class StateResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('country_id')
-                    -> options([
-                        'active' => 'Active',
-                        'inactive' => 'Inactive',
-                    ])
+                    ->relationship(name: 'country', titleAttribute: 'name')
                     ->native(false)
                     ->required(),
                 Forms\Components\TextInput::make('name')
