@@ -33,7 +33,8 @@ class StateResource extends Resource
             ->schema([
                 Forms\Components\Select::make('country_id')
                     ->relationship(name: 'country', titleAttribute: 'name')
-                    ->native(false)
+                    ->searchable()
+                    ->preload()
                     ->required(),
                 Forms\Components\TextInput::make('name')
                     ->required()
