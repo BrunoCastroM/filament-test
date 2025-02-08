@@ -14,7 +14,7 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         //  BRASIL
         //  SÃO PAULO
         $saoPaulo = State::where('name', 'São Paulo')->first();
@@ -73,7 +73,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesEspiritoSanto);
         }
-        
+
         //  PARANÁ
         $parana = State::where('name', 'Paraná')->first();
         if ($parana) {
@@ -87,7 +87,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesParana);
         }
-        
+
         //  SANTA CATARINA
         $santaCatarina = State::where('name', 'Santa Catarina')->first();
         if ($santaCatarina) {
@@ -101,7 +101,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesSantaCatarina);
         }
-        
+
         //  RIO GRANDE DO SUL
         $rioGrandeDoSul = State::where('name', 'Rio Grande do Sul')->first();
         if ($rioGrandeDoSul) {
@@ -114,7 +114,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesRioGrandeDoSul);
         }
-        
+
         //  BAHIA
         $bahia = State::where('name', 'Bahia')->first();
         if ($bahia) {
@@ -153,7 +153,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesCeara);
         }
-        
+
         //  AMAZONAS
         $amazonas = State::where('name', 'Amazonas')->first();
         if ($amazonas) {
@@ -165,7 +165,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesAmazonas);
         }
-        
+
         //  PARÁ
         $para = State::where('name', 'Pará')->first();
         if ($para) {
@@ -202,7 +202,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesMatoGrosso);
         }
-        
+
         //  ESTADOS UNIDOS
         //  CALIFÓRNIA
         $california = State::where('name', 'Califórnia')->first();
@@ -231,7 +231,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesFlorida);
         }
-        
+
         //  NOVA IORQUE
         $novaIorque = State::where('name', 'Nova Iorque')->first();
         if ($novaIorque) {
@@ -244,7 +244,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesNovaIorque);
         }
-        
+
         //  TEXAS
         $texas = State::where('name', 'Texas')->first();
         if ($texas) {
@@ -314,7 +314,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesPorto);
         }
-        
+
         //  BRAGA
         $braga = State::where('name', 'Braga')->first();
         if ($braga) {
@@ -326,7 +326,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesBraga);
         }
-        
+
         //  COIMBRA
         $coimbra = State::where('name', 'Coimbra')->first();
         if ($coimbra) {
@@ -337,7 +337,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesCoimbra);
         }
-        
+
         //  AVEIRO
         $aveiro = State::where('name', 'Aveiro')->first();
         if ($aveiro) {
@@ -348,7 +348,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesAveiro);
         }
-        
+
         //  ARGENTINA
         $buenosAires = State::where('name', 'Buenos Aires')->first();
         if ($buenosAires) {
@@ -380,7 +380,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesSantaFe);
         }
-        
+
         //  CANADÁ
         $ontario = State::where('name', 'Ontário')->first();
         if ($ontario) {
@@ -415,7 +415,7 @@ class CitySeeder extends Seeder
             ];
             City::insert($citiesColumbiaBritanica);
         }
-        
+
         //  JAPÃO
         $toquio = State::where('name', 'Tóquio')->first();
         if ($toquio) {

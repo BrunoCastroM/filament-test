@@ -14,7 +14,7 @@ class StateSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         // BRASIL
         $brasil = Country::where('name', 'Brasil')->first();
 
