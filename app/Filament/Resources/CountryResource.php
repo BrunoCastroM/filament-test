@@ -44,14 +44,6 @@ class CountryResource extends Resource
                     ->required()
                     ->numeric()
                     ->maxLength(5),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ]);
     }
 
@@ -67,6 +59,14 @@ class CountryResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('phonecode')
                     ->numeric(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
