@@ -14,12 +14,12 @@ class CountrySeeder extends Seeder
     public function run(): void
     {
         $countries = [
-            ['name' => 'Brasil'],
-            ['name' => 'Estados Unidos'],
-            ['name' => 'Portugal'],
-            ['name' => 'Argentina'],
-            ['name' => 'Canadá'],
-            ['name' => 'Japão'],
+            ['name' => 'Brasil', 'code' => 'BR', 'phonecode' => '55'],
+            ['name' => 'Estados Unidos', 'code' => 'US', 'phonecode' => '1'],
+            ['name' => 'Portugal', 'code' => 'PT', 'phonecode' => '351'],
+            ['name' => 'Argentina', 'code' => 'AR', 'phonecode' => '54'],
+            ['name' => 'Canadá', 'code' => 'CA', 'phonecode' => '1'],
+            ['name' => 'Japão', 'code' => 'JP', 'phonecode' => '81'],
         ];
 
         foreach ($countries as $country) {

@@ -54,7 +54,7 @@ class StateResource extends Resource
                     ->label('State name')
                     ->sortable()
                     ->searchable()
-                    ->visible(!(Auth::user()?->email === 'admin@example.com')),
+                    ->visible(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -68,6 +68,7 @@ class StateResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([

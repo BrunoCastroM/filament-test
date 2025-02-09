@@ -8,6 +8,8 @@ class Country extends Model
 {
     protected $fillable = [
         'name',
+        'code',
+        'phonecode',
     ];
 
     public function states()
