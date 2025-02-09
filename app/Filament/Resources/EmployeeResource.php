@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\EmployeeResource\Pages;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
 use App\Models\City;
+use App\Models\Department;
 use App\Models\Employee;
 use App\Models\State;
 use Filament\Forms;
@@ -18,7 +19,7 @@ use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
-
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -149,7 +150,14 @@ class EmployeeResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('Department')
+                    ->label('Filter by Department')
+                    ->relationship('department', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->multiple()
+                    ->native(false)
+                    ->indicator('Department'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
