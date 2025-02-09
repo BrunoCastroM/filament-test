@@ -20,6 +20,11 @@ use Filament\Infolists\Infolist;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\Indicator;
+use Carbon\Carbon;
+use Filament\Tables\Enums\FiltersLayout;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -158,6 +163,36 @@ class EmployeeResource extends Resource
                     ->multiple()
                     ->native(false)
                     ->indicator('Department'),
+                Filter::make('created_at')
+                    ->form([
+                        DatePicker::make('created_from'),
+                        DatePicker::make('created_until'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn(Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn(Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+
+                        if ($data['created_from'] ?? null) {
+                            $indicators[] = Indicator::make('Created from ' . Carbon::parse($data['created_from'])->toFormattedDateString())
+                                ->removeField('created_from');
+                        }
+
+                        if ($data['created_until'] ?? null) {
+                            $indicators[] = Indicator::make('Created until ' . Carbon::parse($data['created_until'])->toFormattedDateString())
+                                ->removeField('created_until');
+                        }
+                        return $indicators;
+                    }),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
