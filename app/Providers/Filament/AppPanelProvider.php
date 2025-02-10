@@ -42,7 +42,7 @@ class AppPanelProvider extends PanelProvider
                     ->visible(function (): bool {
                         /** @var \App\Models\User|null $user */
                         $user = Auth::user();
-                        return $user ? $user->isAdmin() : false;
+                        return $user ? $user->is_admin : false;
                     })
             ])
             ->brandLogo(asset('images/laravel-logo.svg'))

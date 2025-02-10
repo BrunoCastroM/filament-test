@@ -27,6 +27,7 @@ class User extends Authenticatable implements HasTenants
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -49,6 +50,7 @@ class User extends Authenticatable implements HasTenants
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 
@@ -67,8 +69,8 @@ class User extends Authenticatable implements HasTenants
         return $this->teams()->whereKey($tenant)->exists();
     }
 
-    public function isAdmin(): bool
-    {
-        return $this->email === 'admin@example.com';
-    }
+    // public function isAdmin(): bool
+    // {
+    //     return $this->email === 'admin@example.com';
+    // }
 }
