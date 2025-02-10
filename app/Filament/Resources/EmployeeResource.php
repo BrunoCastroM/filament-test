@@ -25,6 +25,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\Indicator;
 use Carbon\Carbon;
 use Filament\Tables\Enums\FiltersLayout;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -36,6 +37,33 @@ class EmployeeResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'Employee Management';
+
+    // Global search
+    protected static ?string $recordTitleAttribute = 'first_name';
+
+    // Overwrite the name that appears when you're performing a global search (just last_name).
+    // public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    // {
+    //     return $record->last_name;
+    // }
+
+    // Search for all values that are in the function in the global search.
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['first_name', 'middle_name', 'last_name', 'country.name'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Country' => $record->country->name
+        ];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['country']);
+    }
 
     public static function form(Form $form): Form
     {
