@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -25,10 +26,8 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
             ->brandLogo(asset('images/laravel-logo.svg'))
             ->favicon(asset('images/laravel-logo.svg'))
             ->colors([
@@ -38,6 +37,12 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Indigo,
                 'success' => Color::Emerald,
                 'warning' => Color::Orange,
+            ])
+            ->userMenuItems([
+                MenuItem::make()
+                    ->label('Dashboard')
+                    ->icon('heroicon-o-cog-6-tooth')
+                    ->url('/app')
             ])
             ->font('Poppins')
             ->navigationGroups([
@@ -65,9 +70,6 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
             ]);
     }
 }

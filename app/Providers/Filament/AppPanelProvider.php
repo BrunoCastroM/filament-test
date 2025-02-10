@@ -17,18 +17,34 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Illuminate\Support\Facades\Auth;
 use App\Filament\App\Pages\Tenancy\EditTeamProfile;
 use App\Filament\App\Pages\Tenancy\RegisterTeam;
 use App\Models\Team;
+use Filament\Navigation\MenuItem;
 
 class AppPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default()
             ->id('app')
             ->path('app')
             ->login()
+            ->registration()
+            ->profile()
+            ->userMenuItems([
+                MenuItem::make()
+                    ->label('Admin')
+                    ->icon('heroicon-o-cog-6-tooth')
+                    ->url('/admin')
+                    ->visible(function (): bool {
+                        /** @var \App\Models\User|null $user */
+                        $user = Auth::user();
+                        return $user ? $user->isAdmin() : false;
+                    })
+            ])
             ->brandLogo(asset('images/laravel-logo.svg'))
             ->favicon(asset('images/laravel-logo.svg'))
             ->colors([
