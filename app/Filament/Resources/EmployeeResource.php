@@ -65,6 +65,18 @@ class EmployeeResource extends Resource
         return parent::getGlobalSearchEloquentQuery()->with(['country']);
     }
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeColor(): string|array|null
+    {
+        // return 'info';
+        return static::getModel()::count() > 10 ? 'warning' : 'success';
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form
