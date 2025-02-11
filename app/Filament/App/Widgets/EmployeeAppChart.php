@@ -12,7 +12,7 @@ class EmployeeAppChart extends ChartWidget
 {
     protected static ?string $heading = 'Employee Chart';
 
-    protected static ?int $sort = 4;
+    protected static ?int $sort = 3;
 
     protected static string $color = 'warning';
 

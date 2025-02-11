@@ -11,7 +11,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class StatsAppOverview extends BaseWidget
 {
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 3;
 
     protected function getStats(): array
     {
