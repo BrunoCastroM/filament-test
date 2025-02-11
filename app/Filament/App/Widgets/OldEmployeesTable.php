@@ -25,8 +25,8 @@ class OldEmployeesTable extends BaseWidget
                     // Filters for employees created more than 42 hours ago
                     ->whereBelongsTo(Filament::getTenant())
                     ->where('created_at', '<=', Carbon::now()->subHours(42))
+                    ->orderBy('created_at', 'desc')
             )
-            ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')->label('Name'),
                 Tables\Columns\TextColumn::make('last_name')->label('Last name'),

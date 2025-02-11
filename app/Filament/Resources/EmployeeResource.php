@@ -270,8 +270,7 @@ class EmployeeResource extends Resource
                 Section::make('Name')
                     ->schema([
                         TextEntry::make('full_name')
-                            ->label('Full name')
-                            ->state(fn(Model $record) => trim("{$record->first_name} {$record->middle_name} {$record->last_name}")),
+                        ->label('Full Name'),
                     ]),
                 Section::make('Name')
                     ->schema([

@@ -35,4 +35,9 @@ class Employee extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function getFullNameAttribute(): string
+    {
+        return trim("{$this->first_name} {$this->middle_name} {$this->last_name}");
+    }
 }
