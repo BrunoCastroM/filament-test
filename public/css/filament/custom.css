@@ -1,0 +1,147 @@
+/* Styles for plans into filament dashboard*/
+#plans {
+    max-width: 85rem;
+    margin: 0 auto;
+    width: 100%;
+
+    .plans-header {
+        margin-bottom: 2.5rem;
+        text-align: center;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            color: #6b7280;
+        }
+    }
+
+    .plans-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* 6 = 1.5rem */
+
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .plan-card {
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+
+            .plan-price-value {
+                font-size: 3rem;
+                font-weight: 700;
+                color: #1f2937;
+            }
+            .plan-price-unit {
+                font-size: 1.25rem;
+                color: #9ca3af;
+            }
+        }
+
+        .plan-description {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .plan-features {
+            margin-top: 1rem;
+            flex: 1;
+            font-size: 0.875rem;
+            color: #4b5563;
+            list-style: none;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5rem;
+
+                svg {
+                    width: 1rem;
+                    height: 1rem;
+                    margin-right: 0.5rem;
+                    color: #6366f1;
+                }
+            }
+        }
+
+        .plan-action {
+            margin-top: auto;
+            padding-top: 1rem;
+
+            .plan-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+                border-radius: 0.5rem;
+                background-color: #dbeafe;
+                color: #3730a3;
+                text-decoration: none;
+                transition: background-color 0.2s ease-in-out;
+
+                &:hover {
+                    background-color: #c7d2fe;
+                }
+            }
+        }
+    }
+
+    .plan-card.plan-yearly {
+        border-color: #4f46e5;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        .plan-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .plan-badge {
+                display: inline-block;
+                background-color: #dbeafe;
+                color: #3730a3;
+                font-size: 0.75rem;
+                font-weight: 500;
+                border-radius: 0.375rem;
+                padding: 0.25rem 0.5rem;
+                text-transform: uppercase;
+            }
+        }
+
+        .plan-button {
+            background-color: #4f46e5;
+            color: #ffffff;
+
+            &:hover {
+                background-color: #4338ca;
+            }
+        }
+    }
+}
