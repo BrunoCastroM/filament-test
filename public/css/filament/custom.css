@@ -1,4 +1,4 @@
-/* Styles for plans into filament dashboard*/
+/* Styles for plans in the dashboard (light mode) */
 #plans {
     max-width: 85rem;
     margin: 0 auto;
@@ -23,7 +23,7 @@
     .plans-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1.5rem; /* 6 = 1.5rem */
+        gap: 1.5rem;
 
         @media (min-width: 1024px) {
             grid-template-columns: repeat(3, 1fr);
@@ -37,6 +37,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        background-color: #ffffff;
 
         h4 {
             font-size: 1.125rem;
@@ -56,6 +57,7 @@
                 font-weight: 700;
                 color: #1f2937;
             }
+
             .plan-price-unit {
                 font-size: 1.25rem;
                 color: #9ca3af;
@@ -141,6 +143,83 @@
 
             &:hover {
                 background-color: #4338ca;
+            }
+        }
+    }
+}
+
+/* Styles for plans in the dashboard (dark mode) */
+.dark {
+    #plans {
+        .plans-header {
+            h2 {
+                color: #f9fafb;
+            }
+            p {
+                color: #cbd5e1;
+            }
+        }
+
+        .plan-card {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: #f9fafb;
+
+            h4 {
+                color: #e2e8f0;
+            }
+
+            .plan-price-value {
+                color: #ffffff;
+            }
+
+            .plan-price-unit {
+                color: #94a3b8;
+            }
+
+            .plan-description {
+                color: #cbd5e1;
+            }
+
+            .plan-features {
+                color: #cbd5e1;
+
+                li {
+                    svg {
+                        color: #818cf8;
+                    }
+                }
+            }
+
+            .plan-action {
+                .plan-button {
+                    background-color: #475569;
+                    color: #e2e8f0;
+
+                    &:hover {
+                        background-color: #3f4756;
+                    }
+                }
+            }
+
+            &.plan-yearly {
+                border-color: #4338ca;
+
+                .plan-card-header {
+                    .plan-badge {
+                        background-color: #475569;
+                        color: #cbd5e1;
+                    }
+                }
+
+                .plan-button {
+                    background-color: #4f46e5;
+                    color: #ffffff;
+
+                    &:hover {
+                        background-color: #4338ca;
+                    }
+                }
             }
         }
     }
